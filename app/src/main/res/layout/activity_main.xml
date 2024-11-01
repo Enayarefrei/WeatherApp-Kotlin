@@ -5,25 +5,112 @@
     android:background="#ADBBD1"
     android:padding="16dp">
 
+    <!-- App Logo or Weather Icon -->
+    <ImageView
+        android:id="@+id/ivWeatherIcon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_weather"
+        android:contentDescription="Weather Icon"
+        android:layout_marginTop="20dp"
+    />
+
+    <!-- City Input Field -->
     <EditText
         android:id="@+id/etCity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter city name" />
+        android:layout_below="@id/ivWeatherIcon"
+        android:layout_marginTop="20dp"
+        android:hint="Enter city name"
+        android:background="@drawable/edit_text_background"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#666666"
+        android:textSize="16sp"
+        android:inputType="textCapWords"/>
 
+    <!-- Button to Get Weather -->
     <Button
         android:id="@+id/btnGetWeather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get Weather"
         android:layout_below="@id/etCity"
-        android:layout_marginTop="16dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Get Weather"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"
+        android:padding="10dp"
+        android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/tvWeatherResult"
+    <!-- Weather Result Section -->
+    <LinearLayout
+        android:id="@+id/weatherDetailsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnGetWeather"
-        android:layout_marginTop="16dp"
-        android:textSize="18sp" />
+        android:layout_marginTop="24dp"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:background="@drawable/weather_info_background"
+        android:visibility="gone">
+
+    <!-- City Name Display -->
+        <TextView
+            android:id="@+id/tvCityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="City Name"
+            android:textSize="22sp"
+            android:textColor="#333333"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"/>
+
+    <!-- Temperature Display -->
+        <TextView
+            android:id="@+id/tvTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Temperature"
+            android:textSize="40sp"
+            android:textColor="#FF5722"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal"/>
+
+    <!-- Additional Weather Information -->
+        <TextView
+            android:id="@+id/tvWeatherDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weather Description"
+            android:textSize="18sp"
+            android:textColor="#666666"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal"/>
+
+    <!-- Humidity Display -->
+        <TextView
+            android:id="@+id/tvHumidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Humidity: --%"
+            android:textSize="16sp"
+            android:textColor="#333333"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal"/>
+
+    <!-- Wind Speed Display -->
+        <TextView
+            android:id="@+id/tvWindSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wind Speed: -- m/s"
+            android:textSize="16sp"
+            android:textColor="#333333"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
 </RelativeLayout>
